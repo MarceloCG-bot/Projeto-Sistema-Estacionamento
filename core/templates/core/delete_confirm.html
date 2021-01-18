@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div class="row">
+    <div class="col">
+        <h2> TEM CERTEZA QUE DESEJA DELETAR: {{ obj }} </h2>
+
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="bt btn-danger"> DELTEAR </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

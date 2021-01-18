@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block menu %}
+
+    <ul class="nav nav-tabs">
+
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'core_home' %}">HOME</a>
+        </li>
+
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">SERVIÇOS</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'core_lista_pessoas' %}">PESSOAS</a>
+            <a class="dropdown-item" href="{% url 'core_lista_veiculos' %}">VEÍCULOS</a>
+            <a class="dropdown-item" href="{% url 'core_lista_movrotativos' %}">ROTATIVO</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'core_lista_mensalista' %}">MENSALISTAS</a>
+        </div>
+        </li>
+
+        <li class="nav-item">
+        <a class="nav-link" href="">LOGOUT</a>
+        </li>
+
+    </ul>
+
+{% endblock %}
+
+{% block main %}
+
+<div class="row">
+
+    <div class="col">
+
+        <div class="row">
+            <div class="col-12">
+                <h1>CADASTRO</h1>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <form action="{% url 'core_pessoa_novo' %}" method="POST">
+                    {% csrf_token %}
+            
+                    {{ form|bootstrap }}
+            
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </form>
+            </div>
+
+            <div class="col-sm-6">
+
+                <h1>LISTA PESSOAS</h1>
+
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOME</th>
+                        <th scope="col">ENDEREÇO</th>
+                        <th scope="col">TELEFONE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for pessoa in pessoas %}
+                            <tr>
+                                <th scope="row">{{ pessoa.id }}</th>
+                                <td>{{pessoa.nome}}</td>
+                                <td>{{pessoa.endereco}}</td>
+                                <td>{{pessoa.telefone}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

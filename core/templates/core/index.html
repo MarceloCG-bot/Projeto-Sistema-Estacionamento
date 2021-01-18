@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block menu %}
+
+<ul class="nav nav-tabs">
+
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'core_home' %}">HOME</a>
+    </li>
+
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">SERVIÇOS</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'core_lista_pessoas' %}">PESSOAS</a>
+        <a class="dropdown-item" href="{% url 'core_lista_veiculos' %}">VEÍCULOS</a>
+        <a class="dropdown-item" href="{% url 'core_lista_movrotativos' %}">ROTATIVO</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="{% url 'core_lista_mensalista' %}">MENSALISTAS</a>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="">LOGOUT</a>
+    </li>
+
+</ul>
+
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col">
+            <h1>SEJA BEM VINDO AO SISTEMA</h1>
+
+            <a href="/admin/login/?next=/sistema/">CLIQUE AQUI PARA ENTRAR</a>
+
+        </div>
+    </div>
+{% endblock %}
