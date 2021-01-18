@@ -16,4 +16,6 @@ Digitar os seguintes comandos no seu terminal
 
 7 - Criar o seu usuário admin: python manage.py createsuperuser
 
-8 - Para rodar esse projeto em sua máquina local: python manage.py runserver
+8- pip install bootstrapform
+
+9 - Para rodar esse projeto em sua máquina local: python manage.py runserver
